@@ -4,7 +4,7 @@
 clc;
 clear all;
 
-%Defining Paramets (number of neurons in the network and patterns it will be learned)
+%Defining Parameters (number of neurons in the network and patterns it will be learned)
 num_neuron = 10;
 num_pattern = 2;
 T = 10;
