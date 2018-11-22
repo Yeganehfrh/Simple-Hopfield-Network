@@ -4,10 +4,10 @@
 clc;
 clear all;
 
-%Defining Parameters (number of neurons in the network and patterns it will be learned)
+%Defining Parameters
 num_neuron = 10;
 num_pattern = 2;
-T = 10;
+Temperature = 10;
 
 %Producing Patterns 
 rng('shuffle')
