@@ -1,14 +1,15 @@
-
+%Basic structure of Hopfield network
+%Yeganeh Farahzadi <y.farahzadi@gmail.com> 5 March 2017
+% --------------------------------------------
 clc;
-clear WTotal;
-clear new_pattern;
+clear all;
 
-%Defining Paramets
-num_neuron = 100;
+%Defining Paramets (number of neurons in the network and patterns it will be learned)
+num_neuron = 10;
 num_pattern = 2;
 T = 10;
 
-%Producing Patterns
+%Producing Patterns 
 rng('shuffle')
 for i = 1:num_pattern
     pattern = 2*round(rand(num_neuron,num_pattern))-1;
@@ -101,6 +102,7 @@ clear b;
 
 pattern
 learned_pattern
+
 %system energy
 E_stable = zeros(1,num_pattern+1);
   for ii = 1:num_pattern
