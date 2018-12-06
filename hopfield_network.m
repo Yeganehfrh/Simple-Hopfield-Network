@@ -2,20 +2,20 @@
 %Yeganeh Farahzadi <y.farahzadi@gmail.com> 5 March 2017
 % --------------------------------------------
 clc;
-clear all;
+clear;
 
-%Defining Parameters
+%%Parameters
 num_neuron = 10;
 num_pattern = 2;
 Temperature = 10;
 
-%Producing Patterns 
+%%Producing Patterns 
 rng('shuffle')
 for i = 1:num_pattern
     pattern = 2*round(rand(num_neuron,num_pattern))-1;
 end
 
-%Weight matrix
+%%Weight matrix
 WTotal = zeros(num_neuron,num_neuron);
 for ii = 1:num_pattern
     for i = 1:num_neuron
@@ -30,7 +30,7 @@ for ii = 1:num_pattern
     WTotal = Wii + WTotal;
 end
 
-%Display pattern and get a new pattern
+%%Display pattern and get a new pattern
 disp('your network is constructed... These are its stable points:');
 pattern
 disp('give me a new pattern...');
@@ -58,7 +58,7 @@ else
     num_newcolumn = size_newpattern(1,2);
 end
 
-%System energy in new pattern
+%%System energy in new pattern
 E = 0;
 E_newpattern = zeros(1,num_neuron+1);
 for ii = 1:num_newcolumn
@@ -70,7 +70,7 @@ for ii = 1:num_newcolumn
 end
 E_newpattern(1,1) = -0.5*E;
 
-%learning new pattern & system energy through learning
+%%learning new pattern & system energy through learning
 probability = zeros(num_neuron,num_newcolumn);
 learned_pattern = new_pattern;
 for ii = 1:num_newcolumn
@@ -103,7 +103,7 @@ clear b;
 pattern
 learned_pattern
 
-%system energy
+%%system energy
 E_stable = zeros(1,num_pattern+1);
   for ii = 1:num_pattern
       E = 0;
@@ -115,7 +115,7 @@ E_stable = zeros(1,num_pattern+1);
              E_stable(1,ii) = -0.5*E;
   end
 
-%Ploting system energy
+%%Ploting system energy
 E_stable(1,num_pattern+1) = E_newpattern(1,num_neuron+1);
 num_patterns = 1:num_pattern + num_newpattern;
 plot(num_patterns,E_stable,'r--*')
